@@ -1,0 +1,6 @@
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+OK
+Generated 43 programs, 37189 reference instructions; instruction coverage complete (79 points).
+PASS: 187 RTL simulation runs under iverilog (37189 reference instructions x memory modes; every instruction checked).

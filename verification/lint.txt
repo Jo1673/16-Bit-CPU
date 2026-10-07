@@ -1,0 +1,1 @@
+verilator --lint-only --top-module cpu16_core -Wall rtl/cpu16_core.v rtl/cpu16_alu.v

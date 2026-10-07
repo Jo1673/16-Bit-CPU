@@ -1,0 +1,5 @@
+mkdir -p build
+iverilog -g2012 -s tb_reset -o build/tb_reset rtl/cpu16_core.v rtl/cpu16_alu.v tb/tb_reset.sv
+vvp build/tb_reset
+PASS: reset cancels pending requests, clears state, restarts and leaves HALT
+tb/tb_reset.sv:58: $finish called at 396000 (1ps)

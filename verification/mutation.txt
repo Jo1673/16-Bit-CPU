@@ -1,0 +1,67 @@
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+OK
+KILLED   alu: overflow sign test inverted             FAIL ('branchy_2', 1, 0): FATAL: tb/tb_cpu16.sv:231: instruction 27: pc/Z/C/N/V/H got 007e/0/0/1/1/0 expected 0000007e/0/0/1/0/0
+KILLED   alu: carry out inverted                      FAIL ('cpu8_original_smoke', 1, 0): FATAL: tb/tb_cpu16.sv:231: instruction 2: pc/Z/C/N/V/H got 0003/0/1/0/0/0 expected 00000003/0/0/0/0/0
+KILLED   alu: SUB carry-in forced 0                   FAIL ('cpu8_original_smoke', 1, 0): FATAL: tb/tb_cpu16.sv:231: instruction 5: pc/Z/C/N/V/H got 0006/0/0/1/0/0 expected 00000006/1/1/0/0/0
+KILLED   alu: SBC ignores carry                       FAIL ('branchy_1', 1, 0): FATAL: tb/tb_cpu16.sv:235: instruction 12: R7 got edff expected 0000ee00
+KILLED   alu: SBC does not invert b                   FAIL ('branchy_5', 1, 0): FATAL: tb/tb_cpu16.sv:231: instruction 56: pc/Z/C/N/V/H got 00c3/1/0/0/0/0 expected 000000c3/0/0/1/0/0
+KILLED   alu: SAR is logical                          FAIL ('shifts', 1, 0): FATAL: tb/tb_cpu16.sv:231: instruction 211: pc/Z/C/N/V/H got 0113/0/0/0/0/0 expected 00000113/0/0/1/0/0
+KILLED   alu: RCR ignores carry                       FAIL ('branchy_5', 1, 0): FATAL: tb/tb_cpu16.sv:231: instruction 14: pc/Z/C/N/V/H got 0014/0/0/0/0/0 expected 00000014/0/0/1/0/0
+KILLED   alu: SHL carry from wrong bit                FAIL ('branchy_2', 1, 0): FATAL: tb/tb_cpu16.sv:231: instruction 54: pc/Z/C/N/V/H got 00a2/0/0/0/0/0 expected 000000a2/0/1/0/0/0
+KILLED   alu: SHR carry from wrong bit                FAIL ('branchy_4', 1, 0): FATAL: tb/tb_cpu16.sv:231: instruction 31: pc/Z/C/N/V/H got 0028/0/1/0/0/0 expected 00000028/0/0/0/0/0
+KILLED   alu: NOT inverts a                           FAIL ('branchy_2', 1, 0): FATAL: tb/tb_cpu16.sv:235: instruction 28: R6 got cfc6 expected 0000ff00
+KILLED   alu: XOR becomes OR                          FAIL ('branchy_2', 1, 0): FATAL: tb/tb_cpu16.sv:235: instruction 7: R7 got 00ff expected 000000fe
+KILLED   alu: MOV passes a                            FAIL ('branchy_2', 1, 0): FATAL: tb/tb_cpu16.sv:231: instruction 18: pc/Z/C/N/V/H got 0022/0/1/1/0/0 expected 00000022/0/1/0/0/0
+KILLED   cond: HS inverted                            FAIL ('directed', 0, 0): FATAL: tb/tb_cpu16.sv:231: instruction 18: pc/Z/C/N/V/H got 001d/1/1/0/0/0 expected 0000001f/1/1/0/0/0
+KILLED   cond: HI ignores Z                           FAIL ('conditions', 0, 0): FATAL: tb/tb_cpu16.sv:231: instruction 32: pc/Z/C/N/V/H got 0040/1/1/0/0/0 expected 0000003e/1/1/0/0/0
+KILLED   cond: LS ignores Z                           FAIL ('sort_unsigned', 1, 0): FATAL: tb/tb_cpu16.sv:231: instruction 115: pc/Z/C/N/V/H got 003b/1/1/0/0/0 expected 0000003d/1/1/0/0/0
+KILLED   cond: GE uses N only                         FAIL ('wide_arith', 1, 0): FATAL: tb/tb_cpu16.sv:231: instruction 51: pc/Z/C/N/V/H got 0047/0/0/1/1/0 expected 00000048/0/0/1/1/0
+KILLED   cond: GT ignores Z                           FAIL ('conditions', 0, 0): FATAL: tb/tb_cpu16.sv:231: instruction 46: pc/Z/C/N/V/H got 0060/1/1/0/0/0 expected 0000005e/1/1/0/0/0
+KILLED   cond: LE ignores Z                           FAIL ('branchy_1', 1, 0): FATAL: tb/tb_cpu16.sv:231: instruction 83: pc/Z/C/N/V/H got 00de/1/0/0/0/0 expected 000000df/1/0/0/0/0
+KILLED   cond: MI tests V                             FAIL ('branchy_5', 1, 0): FATAL: tb/tb_cpu16.sv:231: instruction 41: pc/Z/C/N/V/H got 0088/0/0/1/0/0 expected 000000ae/0/0/1/0/0
+KILLED   cond: VS tests C                             FAIL ('fuzz_1', 1, 0): FATAL: tb/tb_cpu16.sv:231: instruction 26: pc/Z/C/N/V/H got 0a51/0/1/0/0/0 expected 000000d3/0/1/0/0/0
+KILLED   cond: reserved cc 15 always taken            FAIL ('directed', 0, 0): FATAL: tb/tb_cpu16.sv:231: instruction 43: pc/Z/C/N/V/H got 0000/0/1/0/0/0 expected 0000004b/0/1/0/0/0
+KILLED   decode: BCC has no extension word            FAIL ('branchy_2', 1, 0): FATAL: tb/tb_cpu16.sv:231: instruction 10: pc/Z/C/N/V/H got 001e/0/0/0/0/0 expected 00000017/0/0/0/0/0
+KILLED   decode: ADDI cannot be wide                  FAIL ('demo', 1, 0): FATAL: tb/tb_cpu16.sv:231: instruction 8: pc/Z/C/N/V/H got 000e/0/0/0/0/0 expected 0000000f/0/1/0/0/0
+KILLED   decode: function 0x30..0x3f act as BCC       FAIL ('directed', 0, 0): FATAL: tb/tb_cpu16.sv:194: instruction 41 took 1 cycles, expected 2
+KILLED   decode: is_bcc too wide                      FAIL ('fuzz_0', 1, 0): FATAL: tb/tb_cpu16.sv:231: instruction 60: pc/Z/C/N/V/H got 00f1/0/1/0/0/0 expected 00006f5f/0/1/0/0/0
+KILLED   pc: HALT advances PC                         FAIL ('cpu8_original_smoke', 1, 0): FATAL: tb/tb_cpu16.sv:231: instruction 10: pc/Z/C/N/V/H got 000c/0/0/0/0/1 expected 0000000b/0/0/0/0/1
+KILLED   pc: JZ inverted                              FAIL ('cpu8_original_smoke', 1, 0): FATAL: tb/tb_cpu16.sv:231: instruction 6: pc/Z/C/N/V/H got 0007/1/1/0/0/0 expected 00000008/1/1/0/0/0
+KILLED   pc: JNZ inverted                             FAIL ('demo', 1, 0): FATAL: tb/tb_cpu16.sv:231: instruction 6: pc/Z/C/N/V/H got 0015/1/1/0/0/0 expected 0000000c/1/1/0/0/0
+KILLED   pc: JR uses rd                               FAIL ('branchy_2', 1, 0): FATAL: tb/tb_cpu16.sv:231: instruction 48: pc/Z/C/N/V/H got 0000/0/0/0/0/0 expected 00000098/0/0/0/0/0
+KILLED   link: JALR link off by one                   FAIL ('directed', 0, 0): FATAL: tb/tb_cpu16.sv:235: instruction 48: R2 got 0051 expected 00000052
+KILLED   link: BAL link is the target                 FAIL ('branchy_2', 1, 0): FATAL: tb/tb_cpu16.sv:235: instruction 10: R7 got 0017 expected 00000011
+KILLED   link: untaken branch writes link             FAIL ('fuzz_0', 1, 0): FATAL: tb/tb_cpu16.sv:235: instruction 236: R2 got 001f expected 0000b9c4
+KILLED   stack: PUSH increments                       FAIL ('directed', 0, 0): FATAL: tb/tb_cpu16.sv:214: instruction 2 store 0101<=1111 (we=1), expected 000000ff<=00001111
+KILLED   stack: PUSH stores at old pointer            FAIL ('directed', 0, 0): FATAL: tb/tb_cpu16.sv:214: instruction 2 store 0100<=1111 (we=1), expected 000000ff<=00001111
+KILLED   stack: POP does not go to MEMORY             FAIL ('directed', 0, 0): FATAL: tb/tb_cpu16.sv:200: unexpected extra fetch in instruction 7
+KILLED   stack: pointer update writes rd              FAIL ('directed', 0, 0): FATAL: tb/tb_cpu16.sv:214: instruction 2 store 00ff<=00ff (we=1), expected 000000ff<=00001111
+KILLED   mem: store data from rs                      FAIL ('cpu8_original_smoke', 1, 0): FATAL: tb/tb_cpu16.sv:214: instruction 3 store 0020<=0000 (we=1), expected 00000020<=0000000c
+KILLED   mem: indirect store does not drive we        FAIL ('branchy_2', 1, 0): FATAL: tb/tb_cpu16.sv:214: instruction 23 store 00ff<=0074 (we=0), expected 000000ff<=00000074
+KILLED   mem: dmem_valid ignores reset                FAIL ('cpu8_original_smoke', 1, 0): FATAL: tb/tb_cpu16.sv:137: request issued while rst_n is low
+KILLED   mem: imem_valid ignores reset                FAIL ('cpu8_original_smoke', 1, 0): FATAL: tb/tb_cpu16.sv:137: request issued while rst_n is low
+KILLED   mem: load ignores ready                      FAIL ('cpu8_original_smoke', 1, 0): FATAL: tb/tb_cpu16.sv:151: R5 changed outside EXECUTE/MEMORY completion (cycle 37)
+KILLED   mem: MEMORY ignores ready                    FAIL ('cpu8_original_smoke', 1, 0): FATAL: tb/tb_cpu16.sv:173: data request changed while waiting (cycle 15)
+KILLED   mem: FETCH ignores ready                     FAIL ('cpu8_original_smoke', 1, 0): FATAL: tb/tb_cpu16.sv:171: instruction request changed while waiting (cycle 4)
+KILLED   mem: EXTENSION ignores ready                 FAIL ('demo', 1, 0): FATAL: tb/tb_cpu16.sv:171: instruction request changed while waiting (cycle 3)
+KILLED   mem: ST skips MEMORY                         FAIL ('cpu8_original_smoke', 1, 0): FATAL: tb/tb_cpu16.sv:200: unexpected extra fetch in instruction 3
+KILLED   mem: short immediate sign-extended           FAIL ('branchy_2', 1, 0): FATAL: tb/tb_cpu16.sv:231: instruction 3: pc/Z/C/N/V/H got 0006/0/0/1/0/0 expected 00000006/0/0/0/0/0
+KILLED   flags: ADD does not set V                    FAIL ('branchy_2', 1, 0): FATAL: tb/tb_cpu16.sv:231: instruction 51: pc/Z/C/N/V/H got 009c/0/0/1/0/0 expected 0000009c/0/0/1/1/0
+KILLED   flags: CMP does not set C                    FAIL ('cpu8_original_smoke', 1, 0): FATAL: tb/tb_cpu16.sv:231: instruction 5: pc/Z/C/N/V/H got 0006/1/0/0/0/0 expected 00000006/1/1/0/0/0
+KILLED   flags: logic ops clobber C                   FAIL ('branchy_2', 1, 0): FATAL: tb/tb_cpu16.sv:231: instruction 18: pc/Z/C/N/V/H got 0022/0/0/0/0/0 expected 00000022/0/1/0/0/0
+KILLED   flags: NOT clobbers C                        FAIL ('branchy_3', 1, 0): FATAL: tb/tb_cpu16.sv:231: instruction 35: pc/Z/C/N/V/H got 0081/0/0/0/0/0 expected 00000081/0/1/0/0/0
+KILLED   flags: N from wrong bit                      FAIL ('demo', 1, 0): FATAL: tb/tb_cpu16.sv:231: instruction 18: pc/Z/C/N/V/H got 0012/0/1/0/0/0 expected 00000012/0/1/1/0/0
+KILLED   flags: LDI does not set Z/N                  FAIL ('demo', 1, 0): FATAL: tb/tb_cpu16.sv:231: instruction 7: pc/Z/C/N/V/H got 000d/1/1/0/0/0 expected 0000000d/0/1/0/0/0
+KILLED   flags: load does not set Z/N                 FAIL ('cpu8_original_smoke', 1, 0): FATAL: tb/tb_cpu16.sv:231: instruction 7: pc/Z/C/N/V/H got 0009/1/1/0/0/0 expected 00000009/0/1/0/0/0
+KILLED   alu: ADDI uses register                      FAIL ('cpu8_original_smoke', 1, 0): FATAL: tb/tb_cpu16.sv:235: instruction 8: R5 got 000c expected 0000000d
+KILLED   alu: CMP adds                                FAIL ('cpu8_original_smoke', 1, 0): FATAL: tb/tb_cpu16.sv:231: instruction 5: pc/Z/C/N/V/H got 0006/0/0/0/0/0 expected 00000006/1/1/0/0/0
+KILLED   alu: SBC maps to SUB                         FAIL ('branchy_5', 1, 0): FATAL: tb/tb_cpu16.sv:231: instruction 56: pc/Z/C/N/V/H got 00c3/1/1/0/0/0 expected 000000c3/0/0/1/0/0
+KILLED   exec: HALT does not halt                     FAIL ('cpu8_original_smoke', 1, 0): FATAL: tb/tb_cpu16.sv:231: instruction 10: pc/Z/C/N/V/H got 000b/0/0/0/0/0 expected 0000000b/0/0/0/0/1
+KILLED   reset: R1 not cleared                        FAIL ('cpu8_original_smoke', 1, 0): FATAL: tb/tb_cpu16.sv:164: R1 not cleared by reset
+KILLED   reset: PC restarts at 1                      FAIL ('cpu8_original_smoke', 1, 0): FATAL: tb/tb_cpu16.sv:163: control state not cleared by reset
+KILLED   reset: C flag not cleared                    FAIL ('cpu8_original_smoke', 1, 0): FATAL: tb/tb_cpu16.sv:163: control state not cleared by reset
+KILLED   reset: state not cleared                     FAIL ('cpu8_original_smoke', 1, 0): FATAL: tb/tb_cpu16.sv:163: control state not cleared by reset
+
+61 of 61 mutants killed; 0 invalid; 0 survivors

@@ -1,0 +1,15 @@
+mkdir -p build
+yosys -q -l build/synth.log -p 'read_verilog rtl/cpu16_alu.v rtl/cpu16_core.v; synth -top cpu16_core; check -assert; tee -o build/synth_summary.txt stat; write_verilog -noattr build/cpu16_generic.v'
+     $_SDFF_PN0_                     1
+   Number of cells:               2131
+     $_DFF_P_                        4
+     $_SDFFCE_PN0P_                112
+     $_SDFFE_PN0P_                  52
+     $_SDFF_PN0_                     1
+python3 tools/verify.py --netlist build/cpu16_generic.v
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+OK
+Generated 43 programs, 37189 reference instructions; instruction coverage complete (79 points).
+PASS: 187 netlist simulation runs under iverilog (37189 reference instructions x memory modes; every instruction checked).
